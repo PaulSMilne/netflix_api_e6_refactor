@@ -1,28 +1,22 @@
 var React = require('react');
+var FilmDetail = require('./FilmDetail.jsx')
 
-var FilmList = React.createClass({
+var FilmList = function(props){
 
-  getInitialState: function(){
-    return {films: []};
-  },
-
-  render: function () {
-    if(!this.props.films) {
-      return<h4>No film selected</h4>
-    };
-
-    var films = this.props.films.map(function(film){
+  var movies = props.films.map(
+    function(movie){
       return (
-       <p>{film.show_title}</p>)
-   });
-  
+        <FilmDetail film={movie} key={movie.show_id}/>
+        )
+    }
+  );
+
   return (
-    <div>
-    {films}
-    </div>
-    );
+      <div className='film_list'>
+      <h2>{props.actor}</h2>
+        {movies}
+      </div>
+    )
+
 }
-
-});
-
 module.exports = FilmList;
