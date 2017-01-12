@@ -28,9 +28,6 @@ var NetflixContainer = React.createClass({
       )
   }
 
-
-
-
 });
 
 module.exports = NetflixContainer;
